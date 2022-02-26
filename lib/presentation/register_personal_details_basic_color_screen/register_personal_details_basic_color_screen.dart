@@ -1,12 +1,21 @@
+import 'package:obi_wan_s_application/presentation/register_q1_basic_color_screen/register_q1_basic_color_screen.dart';
+
 import '../register_personal_details_basic_color_screen/widgets/register_personal_details_basic_color_item_widget.dart';
 import 'controller/register_personal_details_basic_color_controller.dart';
 import 'models/register_personal_details_basic_color_item_model.dart';
+import 'package:obi_wan_s_application/presentation/welcome_screen/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:obi_wan_s_application/core/app_export.dart';
 
 class RegisterPersonalDetailsBasicColorScreen
     extends GetWidget<RegisterPersonalDetailsBasicColorController> {
+
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController pwController = TextEditingController();
+  TextEditingController cpwController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -96,19 +105,25 @@ class RegisterPersonalDetailsBasicColorScreen
                                                 width: getSize(
                                                   40,
                                                 ),
-                                                child: SvgPicture.asset(
-                                                  ImageConstant.imgArrowslefta2,
-                                                  fit: BoxFit.fill,
-                                                ),
+                                                child: IconButton(
+                                                  onPressed: () {
+                                                    Get.to(WelcomeScreen());
+                                                  },
+                                                  icon: SvgPicture.asset(
+                                                    ImageConstant.imgArrowslefta2,
+                                                    fit: BoxFit.fill,
+                                                    
+                                                ),),
+
                                               ),
                                             ),
                                           ),
                                           Align(
-                                            alignment: Alignment.centerRight,
+                                            alignment: Alignment.center,
                                             child: Padding(
                                               padding: EdgeInsets.only(
                                                 left: getHorizontalSize(
-                                                  10,
+                                                  40,
                                                 ),
                                                 top: getVerticalSize(
                                                   5,
@@ -138,13 +153,13 @@ class RegisterPersonalDetailsBasicColorScreen
                                   Align(
                                     alignment: Alignment.center,
                                     child: Container(
-                                      width: double.infinity,
+                                      // width: double.infinity,
                                       margin: EdgeInsets.only(
+                                        top: getVerticalSize(
+                                          20
+                                        ),
                                         left: getHorizontalSize(
                                           10,
-                                        ),
-                                        top: getVerticalSize(
-                                          26,
                                         ),
                                         right: getHorizontalSize(
                                           10,
@@ -153,9 +168,7 @@ class RegisterPersonalDetailsBasicColorScreen
                                       decoration: BoxDecoration(
                                         color: ColorConstant.whiteA700,
                                         borderRadius: BorderRadius.circular(
-                                          getHorizontalSize(
-                                            15,
-                                          ),
+                                          15
                                         ),
                                       ),
                                       child: Column(
@@ -168,29 +181,7 @@ class RegisterPersonalDetailsBasicColorScreen
                                           Padding(
                                             padding: EdgeInsets.only(
                                               top: getVerticalSize(
-                                                2,
-                                              ),
-                                            ),
-                                            child: Obx(
-                                              () => ListView.builder(
-                                                physics:
-                                                    NeverScrollableScrollPhysics(),
-                                                shrinkWrap: true,
-                                                itemCount: controller
-                                                    .registerPersonalDetailsBasicColorModelObj
-                                                    .value
-                                                    .registerPersonalDetailsBasicColorItemList
-                                                    .length,
-                                                itemBuilder: (context, index) {
-                                                  RegisterPersonalDetailsBasicColorItemModel
-                                                      model = controller
-                                                          .registerPersonalDetailsBasicColorModelObj
-                                                          .value
-                                                          .registerPersonalDetailsBasicColorItemList[index];
-                                                  return RegisterPersonalDetailsBasicColorItemWidget(
-                                                    model,
-                                                  );
-                                                },
+                                                10,
                                               ),
                                             ),
                                           ),
@@ -212,7 +203,7 @@ class RegisterPersonalDetailsBasicColorScreen
                                                       13,
                                                     ),
                                                     top: getVerticalSize(
-                                                      12,
+                                                      20,
                                                     ),
                                                     right: getHorizontalSize(
                                                       13,
@@ -229,11 +220,10 @@ class RegisterPersonalDetailsBasicColorScreen
                                                       234,
                                                     ),
                                                     child: TextFormField(
-                                                      controller: controller
-                                                          .tfController,
+                                                      controller: nameController,
                                                       decoration:
                                                           InputDecoration(
-                                                        hintText: "lbl".tr,
+                                                        hintText: "Name".tr,
                                                         hintStyle: AppStyle
                                                             .textStyleLatoregular16
                                                             .copyWith(
@@ -280,13 +270,14 @@ class RegisterPersonalDetailsBasicColorScreen
                                                             width: getSize(
                                                               35,
                                                             ),
-                                                            child: SvgPicture
-                                                                .asset(
-                                                              ImageConstant
-                                                                  .imgSecurityLockKeyAlt,
-                                                              fit: BoxFit
-                                                                  .contain,
-                                                            ),
+                                                            child: Icon(Icons.person_outline, size: 35, color: Color.fromRGBO(0, 0, 0, 1.0)),
+                                                            // SvgPicture
+                                                            //     .asset(
+                                                            //   ImageConstant
+                                                            //       .imgSecurityLockKeyAlt,
+                                                            //   fit: BoxFit
+                                                            //       .contain,
+                                                            // ),
                                                           ),
                                                         ),
                                                         prefixIconConstraints:
@@ -328,9 +319,269 @@ class RegisterPersonalDetailsBasicColorScreen
                                           ),
                                           Container(
                                             width: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color: ColorConstant.whiteA700,
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsets.only(
+                                                    left: getHorizontalSize(
+                                                      13,
+                                                    ),
+                                                    top: getVerticalSize(
+                                                      12,
+                                                    ),
+                                                    right: getHorizontalSize(
+                                                      13,
+                                                    ),
+                                                    bottom: getVerticalSize(
+                                                      1,
+                                                    ),
+                                                  ),
+                                                  child: Container(
+                                                    height: getVerticalSize(
+                                                      47,
+                                                    ),
+                                                    width: getHorizontalSize(
+                                                      234,
+                                                    ),
+                                                    child: TextFormField(
+                                                      controller: emailController,
+                                                      decoration:
+                                                      InputDecoration(
+                                                        hintText: "Email Address".tr,
+                                                        hintStyle: AppStyle
+                                                            .textStyleLatoregular16
+                                                            .copyWith(
+                                                          fontSize: getFontSize(
+                                                            16.0,
+                                                          ),
+                                                          color: ColorConstant
+                                                              .bluegray800,
+                                                        ),
+                                                        enabledBorder:
+                                                        UnderlineInputBorder(
+                                                          borderSide:
+                                                          BorderSide(
+                                                            color: ColorConstant
+                                                                .fromHex(
+                                                                "#ff244257"),
+                                                          ),
+                                                        ),
+                                                        focusedBorder:
+                                                        UnderlineInputBorder(
+                                                          borderSide:
+                                                          BorderSide(
+                                                            color: ColorConstant
+                                                                .fromHex(
+                                                                "#ff244257"),
+                                                          ),
+                                                        ),
+                                                        prefixIcon: Padding(
+                                                          padding:
+                                                          EdgeInsets.only(
+                                                            left:
+                                                            getHorizontalSize(
+                                                              2,
+                                                            ),
+                                                            right:
+                                                            getHorizontalSize(
+                                                              10,
+                                                            ),
+                                                          ),
+                                                          child: Container(
+                                                            height: getSize(
+                                                              35,
+                                                            ),
+                                                            width: getSize(
+                                                              35,
+                                                            ),
+                                                            child: SvgPicture.asset(
+                                                              ImageConstant
+                                                                  .imgCommunication3,
+                                                              fit: BoxFit.fill,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        prefixIconConstraints:
+                                                        BoxConstraints(
+                                                          minWidth: getSize(
+                                                            35,
+                                                          ),
+                                                          minHeight: getSize(
+                                                            35,
+                                                          ),
+                                                        ),
+                                                        isDense: true,
+                                                        contentPadding:
+                                                        EdgeInsets.only(
+                                                          top: getVerticalSize(
+                                                            1.375,
+                                                          ),
+                                                          bottom:
+                                                          getVerticalSize(
+                                                            13.375,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      style: TextStyle(
+                                                        color: ColorConstant
+                                                            .bluegray800,
+                                                        fontSize: getFontSize(
+                                                          16.0,
+                                                        ),
+                                                        fontFamily: 'Lato',
+                                                        fontWeight:
+                                                        FontWeight.w400,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Container(
+                                            width: double.infinity,
+                                            decoration: BoxDecoration(
+                                              color: ColorConstant.whiteA700,
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsets.only(
+                                                    left: getHorizontalSize(
+                                                      13,
+                                                    ),
+                                                    top: getVerticalSize(
+                                                      12,
+                                                    ),
+                                                    right: getHorizontalSize(
+                                                      13,
+                                                    ),
+                                                    bottom: getVerticalSize(
+                                                      1,
+                                                    ),
+                                                  ),
+                                                  child: Container(
+                                                    height: getVerticalSize(
+                                                      47,
+                                                    ),
+                                                    width: getHorizontalSize(
+                                                      234,
+                                                    ),
+                                                    child: TextFormField(
+                                                      controller: pwController,
+                                                      decoration:
+                                                      InputDecoration(
+                                                        hintText: "Password".tr,
+                                                        hintStyle: AppStyle
+                                                            .textStyleLatoregular16
+                                                            .copyWith(
+                                                          fontSize: getFontSize(
+                                                            16.0,
+                                                          ),
+                                                          color: ColorConstant
+                                                              .bluegray800,
+                                                        ),
+                                                        enabledBorder:
+                                                        UnderlineInputBorder(
+                                                          borderSide:
+                                                          BorderSide(
+                                                            color: ColorConstant
+                                                                .fromHex(
+                                                                "#ff244257"),
+                                                          ),
+                                                        ),
+                                                        focusedBorder:
+                                                        UnderlineInputBorder(
+                                                          borderSide:
+                                                          BorderSide(
+                                                            color: ColorConstant
+                                                                .fromHex(
+                                                                "#ff244257"),
+                                                          ),
+                                                        ),
+                                                        prefixIcon: Padding(
+                                                          padding:
+                                                          EdgeInsets.only(
+                                                            left:
+                                                            getHorizontalSize(
+                                                              2,
+                                                            ),
+                                                            right:
+                                                            getHorizontalSize(
+                                                              10,
+                                                            ),
+                                                          ),
+                                                          child: Container(
+                                                            height: getSize(
+                                                              35,
+                                                            ),
+                                                            width: getSize(
+                                                              35,
+                                                            ),
+                                                            child: SvgPicture
+                                                                .asset(
+                                                              ImageConstant
+                                                                  .imgSecurityLockKeyAlt,
+                                                              fit: BoxFit
+                                                                  .contain,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        prefixIconConstraints:
+                                                        BoxConstraints(
+                                                          minWidth: getSize(
+                                                            35,
+                                                          ),
+                                                          minHeight: getSize(
+                                                            35,
+                                                          ),
+                                                        ),
+                                                        isDense: true,
+                                                        contentPadding:
+                                                        EdgeInsets.only(
+                                                          top: getVerticalSize(
+                                                            1.375,
+                                                          ),
+                                                          bottom:
+                                                          getVerticalSize(
+                                                            13.375,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      style: TextStyle(
+                                                        color: ColorConstant
+                                                            .bluegray800,
+                                                        fontSize: getFontSize(
+                                                          16.0,
+                                                        ),
+                                                        fontFamily: 'Lato',
+                                                        fontWeight:
+                                                        FontWeight.w400,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Container(
+                                            width: double.infinity,
                                             margin: EdgeInsets.only(
                                               bottom: getVerticalSize(
-                                                190,
+                                                20,
                                               ),
                                             ),
                                             decoration: BoxDecoration(
@@ -366,11 +617,10 @@ class RegisterPersonalDetailsBasicColorScreen
                                                       234,
                                                     ),
                                                     child: TextFormField(
-                                                      controller: controller
-                                                          .tfController1,
+                                                      controller: cpwController,
                                                       decoration:
                                                           InputDecoration(
-                                                        hintText: "lbl".tr,
+                                                        hintText: "Confirm Password".tr,
                                                         hintStyle: AppStyle
                                                             .textStyleLatoregular16
                                                             .copyWith(
@@ -468,70 +718,43 @@ class RegisterPersonalDetailsBasicColorScreen
                                     ),
                                   ),
                                   Align(
-                                    alignment: Alignment.center,
+                                    alignment: Alignment.bottomCenter,
                                     child: Padding(
                                       padding: EdgeInsets.only(
                                         left: getHorizontalSize(
                                           10,
                                         ),
                                         top: getVerticalSize(
-                                          38,
+                                          20,
                                         ),
                                         right: getHorizontalSize(
                                           10,
                                         ),
                                       ),
                                       child: Container(
-                                        alignment: Alignment.center,
-                                        height: getVerticalSize(
-                                          60,
-                                        ),
-                                        width: getHorizontalSize(
-                                          260,
-                                        ),
-                                        decoration: AppDecoration
-                                            .textStyleLatoregular182,
-                                        child: Text(
-                                          "lbl_next_segment".tr,
-                                          textAlign: TextAlign.center,
-                                          style: AppStyle
-                                              .textStyleLatoregular182
-                                              .copyWith(
-                                            fontSize: getFontSize(
-                                              18,
+                                          width: 260 ,
+                                          height: 60,
+                                          child: ElevatedButton(
+                                            style: ElevatedButton.styleFrom(
+                                                textStyle: TextStyle(
+                                                  color: ColorConstant
+                                                      .bluegray800,
+                                                  fontSize: getFontSize(
+                                                    24.0,
+                                                  ),
+                                                  fontFamily: 'Lato',
+                                                  fontWeight:
+                                                  FontWeight.w400,
+                                                ),
+                                                primary:ColorConstant.bluegray800
                                             ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Padding(
-                                      padding: EdgeInsets.only(
-                                        top: getVerticalSize(
-                                          11,
-                                        ),
-                                      ),
-                                      child: Container(
-                                        alignment: Alignment.center,
-                                        height: getVerticalSize(
-                                          23,
-                                        ),
-                                        width: size.width,
-                                        decoration: AppDecoration
-                                            .textStyleMontserratregular163,
-                                        child: Text(
-                                          "lbl_progress_10".tr,
-                                          textAlign: TextAlign.left,
-                                          style: AppStyle
-                                              .textStyleMontserratregular163
-                                              .copyWith(
-                                            fontSize: getFontSize(
-                                              16,
+                                            onPressed: () {
+                                              Get.to(RegisterQ1BasicColorScreen());
+                                            },
+                                            child: Text(
+                                                'Next Segment'
                                             ),
-                                          ),
-                                        ),
+                                          )
                                       ),
                                     ),
                                   ),

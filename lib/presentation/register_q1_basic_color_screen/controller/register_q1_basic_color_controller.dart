@@ -5,10 +5,16 @@ import 'package:flutter/material.dart';
 
 class RegisterQ1BasicColorController extends GetxController
     with StateMixin<dynamic> {
-  TextEditingController loginController = TextEditingController();
+  // TextEditingController loginController = TextEditingController();
 
-  Rx<RegisterQ1BasicColorModel> registerQ1BasicColorModelObj =
-      RegisterQ1BasicColorModel().obs;
+  // Rx<RegisterQ1BasicColorModel> registerQ1BasicColorModelObj =
+  //     RegisterQ1BasicColorModel().obs;
+
+  final selected = "Never Married".obs;
+
+  void setSelected(String value){
+    selected.value = value;
+  }
 
   @override
   void onReady() {
@@ -18,6 +24,6 @@ class RegisterQ1BasicColorController extends GetxController
   @override
   void onClose() {
     super.onClose();
-    loginController.dispose();
+    // loginController.dispose();
   }
 }

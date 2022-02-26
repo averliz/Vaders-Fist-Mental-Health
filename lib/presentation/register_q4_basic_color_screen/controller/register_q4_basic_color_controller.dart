@@ -5,12 +5,18 @@ import 'package:flutter/material.dart';
 
 class RegisterQ4BasicColorController extends GetxController
     with StateMixin<dynamic> {
-  TextEditingController tfController = TextEditingController();
+  // TextEditingController tfController = TextEditingController();
+  //
+  // TextEditingController tfController1 = TextEditingController();
+  //
+  // Rx<RegisterQ4BasicColorModel> registerQ4BasicColorModelObj =
+  //     RegisterQ4BasicColorModel().obs;
 
-  TextEditingController tfController1 = TextEditingController();
+  final selected = "Moderate".obs;
 
-  Rx<RegisterQ4BasicColorModel> registerQ4BasicColorModelObj =
-      RegisterQ4BasicColorModel().obs;
+  void setSelected(String value){
+    selected.value = value;
+  }
 
   @override
   void onReady() {
@@ -20,7 +26,7 @@ class RegisterQ4BasicColorController extends GetxController
   @override
   void onClose() {
     super.onClose();
-    tfController.dispose();
-    tfController1.dispose();
+    // tfController.dispose();
+    // tfController1.dispose();
   }
 }

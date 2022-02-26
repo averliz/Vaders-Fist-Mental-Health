@@ -1,3 +1,6 @@
+import 'package:obi_wan_s_application/presentation/login_type_2_screen/login_type_2_screen.dart';
+import 'package:obi_wan_s_application/presentation/register_personal_details_basic_color_screen/register_personal_details_basic_color_screen.dart';
+
 import '../welcome_screen/widgets/welcome_screen_item_widget.dart';
 import 'controller/welcome_controller.dart';
 import 'models/welcome_screen_item_model.dart';
@@ -93,7 +96,7 @@ class WelcomeScreen extends GetWidget<WelcomeController> {
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Padding(
                                     padding: EdgeInsets.only(
@@ -114,36 +117,57 @@ class WelcomeScreen extends GetWidget<WelcomeController> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: Alignment.centerLeft,
+                                    alignment: Alignment.center,
                                     child: Padding(
                                       padding: EdgeInsets.only(
                                         top: getVerticalSize(
                                           183,
                                         ),
                                       ),
-                                      // child: Obx(
-                                      //   () => ListView.builder(
-                                      //     physics:
-                                      //         NeverScrollableScrollPhysics(),
-                                      //     shrinkWrap: true,
-                                      //     itemCount: controller
-                                      //         .welcomeModelObj
-                                      //         .value
-                                      //         .welcomeScreenItemList
-                                      //         .length,
-                                      //     itemBuilder: (context, index) {
-                                      //       WelcomeScreenItemModel model =
-                                      //           controller.welcomeModelObj.value
-                                      //                   .welcomeScreenItemList[
-                                      //               index];
-                                      //       return WelcomeScreenItemWidget(
-                                      //         model,
-                                      //       );
-                                      //     },
-                                      //   ),
-                                      // ),
+                                        child: Container(
+                                            width: 218,
+                                            height: 89,
+                                            child: ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                  textStyle: AppStyle.textStyleLatosemibold24.copyWith(fontSize: getFontSize(24)),
+                                                  primary:Color.fromRGBO(91, 129, 142, 1.0)
+                                              ),
+                                              onPressed: () {
+                                                Get.to(LoginType2Screen());
+                                              },
+                                              child: Text(
+                                                  'Login'
+                                              ),
+                                            )
+                                        ),
                                     ),
                                   ),
+                                  Align(
+                                    alignment: Alignment.center,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                        top: getVerticalSize(
+                                          20,
+                                        ),
+                                      ),
+                                      child: Container(
+                                          width: 218,
+                                          height: 89,
+                                          child: ElevatedButton(
+                                            style: ElevatedButton.styleFrom(
+                                                textStyle: AppStyle.textStyleLatosemibold24.copyWith(fontSize: getFontSize(24)),
+                                                primary:Color.fromRGBO(191, 211, 122, 1.0)
+                                            ),
+                                            onPressed: () {
+                                              Get.to(RegisterPersonalDetailsBasicColorScreen());
+                                            },
+                                            child: Text(
+                                                'Register'
+                                            ),
+                                          )
+                                      ),
+                                    ),
+                                  )
                                 ],
                               ),
                             ),
