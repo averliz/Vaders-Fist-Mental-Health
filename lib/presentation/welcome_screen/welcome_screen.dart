@@ -17,16 +17,13 @@ class WelcomeScreen extends GetWidget<WelcomeController> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
                 child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: SingleChildScrollView(
+                  alignment: Alignment.center,
                     child: Container(
-                      height: getVerticalSize(
-                        694,
-                      ),
+                      height: size.height,
                       width: size.width,
                       child: Stack(
                         alignment: Alignment.bottomCenter,
@@ -34,9 +31,7 @@ class WelcomeScreen extends GetWidget<WelcomeController> {
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Container(
-                              height: getVerticalSize(
-                                694,
-                              ),
+                              height: size.height,
                               width: size.width,
                               child: Stack(
                                 alignment: Alignment.topLeft,
@@ -45,17 +40,13 @@ class WelcomeScreen extends GetWidget<WelcomeController> {
                                     alignment: Alignment.centerLeft,
                                     child: Image.asset(
                                       ImageConstant.imgImage11,
-                                      height: getVerticalSize(
-                                        694,
-                                      ),
-                                      width: getHorizontalSize(
-                                        360,
-                                      ),
+                                      height: size.height,
+                                      width: size.width,
                                       fit: BoxFit.fill,
                                     ),
                                   ),
                                   Align(
-                                    alignment: Alignment.topLeft,
+                                    alignment: Alignment.topCenter,
                                     child: Padding(
                                       padding: EdgeInsets.only(
                                         top: getVerticalSize(
@@ -101,8 +92,8 @@ class WelcomeScreen extends GetWidget<WelcomeController> {
                               ),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Padding(
                                     padding: EdgeInsets.only(
@@ -130,27 +121,27 @@ class WelcomeScreen extends GetWidget<WelcomeController> {
                                           183,
                                         ),
                                       ),
-                                      child: Obx(
-                                        () => ListView.builder(
-                                          physics:
-                                              NeverScrollableScrollPhysics(),
-                                          shrinkWrap: true,
-                                          itemCount: controller
-                                              .welcomeModelObj
-                                              .value
-                                              .welcomeScreenItemList
-                                              .length,
-                                          itemBuilder: (context, index) {
-                                            WelcomeScreenItemModel model =
-                                                controller.welcomeModelObj.value
-                                                        .welcomeScreenItemList[
-                                                    index];
-                                            return WelcomeScreenItemWidget(
-                                              model,
-                                            );
-                                          },
-                                        ),
-                                      ),
+                                      // child: Obx(
+                                      //   () => ListView.builder(
+                                      //     physics:
+                                      //         NeverScrollableScrollPhysics(),
+                                      //     shrinkWrap: true,
+                                      //     itemCount: controller
+                                      //         .welcomeModelObj
+                                      //         .value
+                                      //         .welcomeScreenItemList
+                                      //         .length,
+                                      //     itemBuilder: (context, index) {
+                                      //       WelcomeScreenItemModel model =
+                                      //           controller.welcomeModelObj.value
+                                      //                   .welcomeScreenItemList[
+                                      //               index];
+                                      //       return WelcomeScreenItemWidget(
+                                      //         model,
+                                      //       );
+                                      //     },
+                                      //   ),
+                                      // ),
                                     ),
                                   ),
                                 ],
@@ -162,7 +153,6 @@ class WelcomeScreen extends GetWidget<WelcomeController> {
                     ),
                   ),
                 ),
-              ),
             ],
           ),
         ),

@@ -14,46 +14,37 @@ class SplashScreen extends GetWidget<SplashController> {
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.end,
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
                 child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: SingleChildScrollView(
-                    child: Container(
-                      height: getVerticalSize(
-                        694,
-                      ),
+                  alignment: Alignment.center,
+                  child:  Container(
+                      height: size.height,
                       width: size.width,
                       child: Stack(
-                        alignment: Alignment.bottomCenter,
+                        alignment: Alignment.center,
                         children: [
                           Align(
-                            alignment: Alignment.centerLeft,
+                            alignment: Alignment.center,
                             child: Container(
-                              height: getVerticalSize(
-                                694,
-                              ),
+                              height: size.height,
                               width: size.width,
                               child: Stack(
-                                alignment: Alignment.bottomLeft,
+                                alignment: Alignment.center,
                                 children: [
                                   Align(
-                                    alignment: Alignment.centerLeft,
+                                    alignment: Alignment.center,
                                     child: Image.asset(
                                       ImageConstant.imgImage1,
-                                      height: getVerticalSize(
-                                        694,
-                                      ),
-                                      width: getHorizontalSize(
-                                        360,
-                                      ),
+                                      height: size.height,
+                                      width: size.width,
                                       fit: BoxFit.fill,
                                     ),
                                   ),
                                   Align(
-                                    alignment: Alignment.bottomLeft,
+                                    alignment: Alignment.bottomCenter,
                                     child: Padding(
                                       padding: EdgeInsets.only(
                                         top: getVerticalSize(
@@ -115,8 +106,7 @@ class SplashScreen extends GetWidget<SplashController> {
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
           ),
         ),
       ),
