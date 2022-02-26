@@ -89,4 +89,6 @@ class ImageConstant {
   static String imgImage4 = 'assets/images/img_image4.png';
 
   static String imageNotFound = 'assets/images/image_not_found.png';
+
+  static String img_healthymind = "assets/images/healthy-mind-tips.png";
 }

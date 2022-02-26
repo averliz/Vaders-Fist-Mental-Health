@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 
 class LoginType1Controller extends GetxController with StateMixin<dynamic> {
+  // text editing controllers
   TextEditingController loginController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   Rx<LoginType1Model> loginType1ModelObj = LoginType1Model().obs;
 

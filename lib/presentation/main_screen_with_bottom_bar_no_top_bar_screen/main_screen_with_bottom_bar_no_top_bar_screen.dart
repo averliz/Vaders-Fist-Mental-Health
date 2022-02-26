@@ -1,7 +1,10 @@
+import 'dart:html';
+
 import 'controller/main_screen_with_bottom_bar_no_top_bar_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:obi_wan_s_application/core/app_export.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MainScreenWithBottomBarNoTopBarScreen
     extends GetWidget<MainScreenWithBottomBarNoTopBarController> {
@@ -102,16 +105,22 @@ class MainScreenWithBottomBarNoTopBarScreen
                                         7,
                                       ),
                                     ),
-                                    child: Image.asset(
-                                      ImageConstant.imgImage61,
-                                      height: getVerticalSize(
-                                        168,
-                                      ),
-                                      width: getHorizontalSize(
-                                        300,
-                                      ),
-                                      fit: BoxFit.fill,
-                                    ),
+                                    child: InkWell(
+                                      onTap: _launchURL,
+                                      // splashColor: Colors.white10, 
+                                      child: ClipRRect( 
+                                        child: Image.asset(
+                                            ImageConstant.imgImage61,
+                                            height: getVerticalSize(
+                                              168,
+                                            ),
+                                            width: getHorizontalSize(
+                                              300,
+                                            ),
+                                            fit: BoxFit.fill,
+                                          ),
+                                        ),
+                                    )
                                   ),
                                   Align(
                                     alignment: Alignment.centerLeft,
@@ -124,6 +133,7 @@ class MainScreenWithBottomBarNoTopBarScreen
                                       child: Text(
                                         "msg_here_are_some_r".tr,
                                         overflow: TextOverflow.ellipsis,
+                                        maxLines: 2,
                                         textAlign: TextAlign.center,
                                         style: AppStyle.textStyleLatoregular183
                                             .copyWith(
@@ -153,6 +163,9 @@ class MainScreenWithBottomBarNoTopBarScreen
                                       ),
                                     ),
                                     decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: FileImage(File("/assets/images/healthy-mind-tips.png", ));
+                                      ),
                                       color: ColorConstant.whiteA700,
                                       borderRadius: BorderRadius.circular(
                                         getHorizontalSize(
@@ -297,10 +310,10 @@ class MainScreenWithBottomBarNoTopBarScreen
                                           ),
                                           child: Container(
                                             height: getSize(
-                                              40,
+                                              20,
                                             ),
                                             width: getSize(
-                                              40,
+                                              20,
                                             ),
                                             child: SvgPicture.asset(
                                               ImageConstant.imgUsersprofile1,
@@ -432,31 +445,31 @@ class MainScreenWithBottomBarNoTopBarScreen
                               ),
                             ),
                           ),
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                top: getVerticalSize(
-                                  522,
-                                ),
-                                bottom: getVerticalSize(
-                                  522,
-                                ),
-                              ),
-                              child: Container(
-                                height: getVerticalSize(
-                                  65,
-                                ),
-                                width: getHorizontalSize(
-                                  360,
-                                ),
-                                child: SvgPicture.asset(
-                                  ImageConstant.imgRectangle101,
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                            ),
-                          ),
+                          // Align(
+                          //   alignment: Alignment.centerLeft,
+                          //   child: Padding(
+                          //     padding: EdgeInsets.only(
+                          //       top: getVerticalSize(
+                          //         522,
+                          //       ),
+                          //       bottom: getVerticalSize(
+                          //         522,
+                          //       ),
+                          //     ),
+                          //     child: Container(
+                          //       height: getVerticalSize(
+                          //         65,
+                          //       ),
+                          //       width: getHorizontalSize(
+                          //         360,
+                          //       ),
+                          //       child: SvgPicture.asset(
+                          //         ImageConstant.imgRectangle101,
+                          //         fit: BoxFit.fill,
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
                         ],
                       ),
                     ),
@@ -466,7 +479,42 @@ class MainScreenWithBottomBarNoTopBarScreen
             ],
           ),
         ),
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: const Color(0xFF5B818E),
+          items: const<BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+              icon: Icon(Icons.book_rounded, ),
+              label: 'Journal',
+              // backgroundColor: Colors.red,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.show_chart_rounded),
+              label: 'Progress',
+              // backgroundColor: Colors.green,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person, ),
+              label: "Profile",
+              // backgroundColor: Colors.purple,
+            ),
+          ],
+          // currentIndex: _selectedIndex,
+          selectedItemColor: Colors.white,
+          selectedLabelStyle: TextStyle(color: Colors.white,),
+          unselectedLabelStyle: TextStyle(color: Colors.white,),
+          // onTap: _onItemTapped,
+          ),
       ),
     );
+  }
+}
+
+_launchURL() async {
+  // const url = 'https://www.mindline.sg/wysa-chat';
+  const url = 'www.google.com';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }
