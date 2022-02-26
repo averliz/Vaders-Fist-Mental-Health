@@ -1,0 +1,1 @@
+class RegisterQ8BasicColorModel {}
