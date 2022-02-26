@@ -1,0 +1,1 @@
+class MainScreenWithBottomBarNoTopBar1Model {}

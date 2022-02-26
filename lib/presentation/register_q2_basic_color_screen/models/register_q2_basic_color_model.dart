@@ -1,0 +1,1 @@
+class RegisterQ2BasicColorModel {}
