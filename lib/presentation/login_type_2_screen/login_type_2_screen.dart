@@ -13,7 +13,8 @@ class LoginType2Screen extends GetWidget<LoginType2Controller> {
         backgroundColor: ColorConstant.bluegray500,
         body: Container(
           width: size.width,
-          child: SingleChildScrollView(
+          child: Form(
+            key: controller.loginFormKey,
             child: Container(
               height: size.height,
               width: size.width,
@@ -42,7 +43,7 @@ class LoginType2Screen extends GetWidget<LoginType2Controller> {
                           10,
                         ),
                         top: getVerticalSize(
-                          10,
+                          0,
                         ),
                         right: getHorizontalSize(
                           10,
@@ -78,11 +79,11 @@ class LoginType2Screen extends GetWidget<LoginType2Controller> {
                             ),
                           ),
                           Align(
-                            alignment: Alignment.centerRight,
+                            alignment: Alignment.center,
                             child: Padding(
                               padding: EdgeInsets.only(
                                 left: getHorizontalSize(
-                                  10,
+                                  0,
                                 ),
                                 top: getVerticalSize(
                                   119,
@@ -102,12 +103,12 @@ class LoginType2Screen extends GetWidget<LoginType2Controller> {
                             ),
                           ),
                           Align(
-                            alignment: Alignment.centerRight,
+                            alignment: Alignment.center,
                             child: Container(
                               width: double.infinity,
                               margin: EdgeInsets.only(
                                 left: getHorizontalSize(
-                                  38,
+                                  10,
                                 ),
                                 top: getVerticalSize(
                                   30,
@@ -178,6 +179,10 @@ class LoginType2Screen extends GetWidget<LoginType2Controller> {
                                                   CrossAxisAlignment.center,
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
+                                                Padding(
+                                                    padding: const EdgeInsets.all(5.0),
+                                                    // child: Text("text"),
+                                                  ),
                                                 Container(
                                                   height: getSize(
                                                     35,
@@ -192,27 +197,21 @@ class LoginType2Screen extends GetWidget<LoginType2Controller> {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsets.only(
-                                                    top: getVerticalSize(
-                                                      8,
-                                                    ),
-                                                    bottom: getVerticalSize(
-                                                      10,
-                                                    ),
-                                                  ),
-                                                  child: Text(
-                                                    "msg_john_appleseed".tr,
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    textAlign: TextAlign.left,
-                                                    style: AppStyle
-                                                        .textStyleLatoregular16
-                                                        .copyWith(
-                                                      fontSize: getFontSize(
-                                                        16,
-                                                      ),
-                                                    ),
-                                                  ),
+                                                    padding: const EdgeInsets.all(5.0),
+                                                    // child: Text("text"),
+                                                ),
+                                                Expanded(
+                                                  child: 
+                                                    TextFormField(
+                                                    controller: controller.emailController,
+                                                    decoration: InputDecoration(
+                                                      hintText: "msg_john_appleseed".tr,
+                                                    ), 
+                                                  )
+                                                ),
+                                                Padding(
+                                                    padding: const EdgeInsets.all(15.0),
+                                                    // child: Text("text"),
                                                 ),
                                               ],
                                             ),
@@ -223,11 +222,11 @@ class LoginType2Screen extends GetWidget<LoginType2Controller> {
                                             1.5,
                                           ),
                                           width: getHorizontalSize(
-                                            234,
+                                            290,
                                           ),
                                           margin: EdgeInsets.only(
                                             left: getHorizontalSize(
-                                              15,
+                                              11,
                                             ),
                                             top: getVerticalSize(
                                               12,
@@ -265,18 +264,9 @@ class LoginType2Screen extends GetWidget<LoginType2Controller> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
-                                          padding: EdgeInsets.only(
-                                            left: getHorizontalSize(
-                                              12,
-                                            ),
-                                            top: getVerticalSize(
-                                              5,
-                                            ),
-                                            bottom: getVerticalSize(
-                                              5,
-                                            ),
-                                          ),
-                                          child: Container(
+                                          padding: const EdgeInsets.all(5.0),
+                                        ),
+                                        Container(
                                             height: getSize(
                                               35,
                                             ),
@@ -287,35 +277,21 @@ class LoginType2Screen extends GetWidget<LoginType2Controller> {
                                               ImageConstant.imgSecuritylock2,
                                               fit: BoxFit.fill,
                                             ),
-                                          ),
                                         ),
                                         Padding(
-                                          padding: EdgeInsets.only(
-                                            left: getHorizontalSize(
-                                              7,
-                                            ),
-                                            top: getVerticalSize(
-                                              14,
-                                            ),
-                                            right: getHorizontalSize(
-                                              55,
-                                            ),
-                                            bottom: getVerticalSize(
-                                              13.75,
-                                            ),
-                                          ),
-                                          child: Text(
-                                            "lbl".tr,
-                                            overflow: TextOverflow.ellipsis,
-                                            textAlign: TextAlign.left,
-                                            style: AppStyle
-                                                .textStyleLatoregular16
-                                                .copyWith(
-                                              fontSize: getFontSize(
-                                                16,
-                                              ),
-                                            ),
-                                          ),
+                                          padding: const EdgeInsets.all(5.0),
+                                        ),
+                                        Expanded(
+                                          child: 
+                                            TextFormField(
+                                            controller: controller.passwordController,
+                                            decoration: InputDecoration(
+                                              hintText: "lbl".tr,
+                                            ), 
+                                          )
+                                        ),
+                                        Padding(
+                                            padding: const EdgeInsets.all(15.0),
                                         ),
                                       ],
                                     ),
@@ -324,100 +300,78 @@ class LoginType2Screen extends GetWidget<LoginType2Controller> {
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                              left: getHorizontalSize(
-                                10,
-                              ),
-                              top: getVerticalSize(
-                                18,
-                              ),
-                            ),
-                            child: Container(
-                              height: getVerticalSize(
-                                51,
-                              ),
-                              width: getHorizontalSize(
-                                280,
-                              ),
-                              child: TextFormField(
-                                controller: controller.loginController,
-                                decoration: InputDecoration(
-                                  hintText: "lbl_login".tr,
-                                  hintStyle:
-                                      AppStyle.textStyleLatoregular24.copyWith(
-                                    fontSize: getFontSize(
-                                      24.0,
-                                    ),
-                                    color: ColorConstant.bluegray800,
-                                  ),
-                                  enabledBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: ColorConstant.fromHex("#ffffffff"),
-                                    ),
-                                  ),
-                                  focusedBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: ColorConstant.fromHex("#ffffffff"),
-                                    ),
-                                  ),
-                                  isDense: true,
-                                  contentPadding: EdgeInsets.only(
-                                    top: getVerticalSize(
-                                      13.06,
-                                    ),
-                                    right: getHorizontalSize(
-                                      16,
-                                    ),
-                                    bottom: getVerticalSize(
-                                      30.060001,
-                                    ),
-                                  ),
-                                ),
-                                style: TextStyle(
-                                  color: ColorConstant.bluegray800,
-                                  fontSize: getFontSize(
-                                    24.0,
-                                  ),
-                                  fontFamily: 'Lato',
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ),
-                          ),
                           Align(
-                            alignment: Alignment.centerRight,
-                            child: Padding(
-                              padding: EdgeInsets.only(
+                            alignment: Alignment.center,
+                            child:
+                              Container(
+                                width: double.infinity,
+                                margin: EdgeInsets.only(
                                 left: getHorizontalSize(
-                                  38,
+                                  10,
                                 ),
                                 top: getVerticalSize(
-                                  25,
+                                  15,
                                 ),
                                 right: getHorizontalSize(
-                                  8,
+                                  10,
                                 ),
                               ),
-                              child: Obx(
-                                () => ListView.builder(
-                                  physics: BouncingScrollPhysics(),
-                                  shrinkWrap: true,
-                                  itemCount: controller.loginType2ModelObj.value
-                                      .group303ItemList.length,
-                                  itemBuilder: (context, index) {
-                                    Group303ItemModel model = controller
-                                        .loginType2ModelObj
-                                        .value
-                                        .group303ItemList[index];
-                                    return Group303ItemWidget(
-                                      model,
-                                    );
-                                  },
+                                child: Container(
+                                  height: getVerticalSize(
+                                    51,
+                                  ),
+                                  width: getHorizontalSize(
+                                    300,
+                                  ),
+                                  child: ElevatedButton(
+                                    child: Text(
+                                      "Login",
+                                      style: 
+                                        AppStyle.textStyleLatoregular241.copyWith(
+                                      fontSize: getFontSize(
+                                      24.0,
+                                    ),
+                                    color: ColorConstant.whiteA700,
+                                  ),
+                                  ),
+                                    onPressed: controller.login,
+                                  )                              
                                 ),
                               ),
-                            ),
                           ),
+                          // Align(
+                          //   alignment: Alignment.centerRight,
+                          //   child: Padding(
+                          //     padding: EdgeInsets.only(
+                          //       left: getHorizontalSize(
+                          //         38,
+                          //       ),
+                          //       top: getVerticalSize(
+                          //         25,
+                          //       ),
+                          //       right: getHorizontalSize(
+                          //         8,
+                          //       ),
+                          //     ),
+                          //     child: Obx(
+                          //       () => ListView.builder(
+                          //         physics: BouncingScrollPhysics(),
+                          //         shrinkWrap: true,
+                          //         itemCount: controller.loginType2ModelObj.value
+                          //             .group303ItemList.length,
+                          //         itemBuilder: (context, index) {
+                          //           Group303ItemModel model = controller
+                          //               .loginType2ModelObj
+                          //               .value
+                          //               .group303ItemList[index];
+                          //           return Group303ItemWidget(
+                          //             model,
+                          //           );
+                          //         },
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
                         ],
                       ),
                     ),

@@ -78,7 +78,7 @@ class LoginType1Screen extends GetWidget<LoginType1Controller> {
                             ),
                           ),
                           Align(
-                            alignment: Alignment.centerRight,
+                            alignment: Alignment.center,
                             child: Padding(
                               padding: EdgeInsets.only(
                                 left: getHorizontalSize(
@@ -91,7 +91,7 @@ class LoginType1Screen extends GetWidget<LoginType1Controller> {
                               child: Text(
                                 "lbl_welcome_back".tr,
                                 overflow: TextOverflow.ellipsis,
-                                textAlign: TextAlign.center,
+                                textAlign: TextAlign.left,
                                 style:
                                     AppStyle.textStyleLatosemibold36.copyWith(
                                   fontSize: getFontSize(
