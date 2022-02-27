@@ -40,7 +40,7 @@ class MainScreenWithBottomBarNoTopBarScreen
                   child: SingleChildScrollView(
                     padding: EdgeInsets.only(
                       top: getVerticalSize(
-                        27,
+                        0,
                       ),
                       bottom: getVerticalSize(
                         20,
@@ -79,7 +79,7 @@ class MainScreenWithBottomBarNoTopBarScreen
                                       style: AppStyle.textStyleLatoregular183
                                           .copyWith(
                                         fontSize: getFontSize(
-                                          18,
+                                          25,
                                         ),
                                       ),
                                     ),
@@ -102,7 +102,7 @@ class MainScreenWithBottomBarNoTopBarScreen
                                       ),
                                         child: Container(
                                           height: getVerticalSize(
-                                            51,
+                                            45,
                                           ),
                                           width: getHorizontalSize(
                                             300,
@@ -113,13 +113,14 @@ class MainScreenWithBottomBarNoTopBarScreen
                                               style: 
                                                 AppStyle.textStyleLatoregular241.copyWith(
                                               fontSize: getFontSize(
-                                              24.0,
+                                              20.0,
                                             ),
                                             color: ColorConstant.whiteA700,
                                           ),
                                           ),
                                             onPressed: () {
-                                              
+                                              // Get.snackbar('Analyzing:', 'Sleep Data...');
+                                              sleep(Duration(seconds:1));
                                               showDialog(
                                                 context: context,
                                                 builder: (context) {
@@ -569,11 +570,12 @@ _launchURL() async {
   }
 }
 
-// main() async {
-//   // List all files in the current directory in UNIX-like systems.
-//   var results = await Process.run('cd .\\IEEEHackathon\\ ', []);
-//   // print(results.stdout);
-// }
+Future main() async {
+  // List all files in the current directory in UNIX-like systems.
+  var cmd1 = await Process.run('cd C:/Users/jimmy/Documents/GitHub/Vaders-Fist-Mental-Health/IEEEHackathon', [], runInShell: true);
+  var cmd2 = await Process.run(' ./set_model_stress.bat ', ["95", "6"], runInShell:true);
+  // print(results.stdout);
+}
 
 // Future main() async {
 //   // This works on Windows/Linux/Mac
