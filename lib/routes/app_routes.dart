@@ -232,9 +232,9 @@ class AppRoutes {
     ),
     GetPage(
       name: initialRoute,
-      page: () => LoginType2Screen(),
+      page: () => SplashScreen(),
       bindings: [
-        LoginType2Binding(),
+        SplashBinding(),
       ],
     )
   ];

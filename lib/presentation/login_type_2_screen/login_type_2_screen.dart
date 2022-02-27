@@ -1,3 +1,5 @@
+import 'package:obi_wan_s_application/presentation/welcome_screen/welcome_screen.dart';
+
 import '../login_type_2_screen/widgets/group303_item_widget.dart';
 import 'controller/login_type_2_controller.dart';
 import 'models/group303_item_model.dart';
@@ -6,6 +8,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:obi_wan_s_application/core/app_export.dart';
 
 class LoginType2Screen extends GetWidget<LoginType2Controller> {
+
+  LoginType2Controller controller = LoginType2Controller();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -63,6 +68,9 @@ class LoginType2Screen extends GetWidget<LoginType2Controller> {
                                 right: getHorizontalSize(
                                   10,
                                 ),
+                                top: getHorizontalSize(
+                                  10,
+                                ),
                               ),
                               child: Container(
                                 height: getSize(
@@ -71,10 +79,16 @@ class LoginType2Screen extends GetWidget<LoginType2Controller> {
                                 width: getSize(
                                   40,
                                 ),
-                                child: SvgPicture.asset(
-                                  ImageConstant.imgArrowslefta3,
-                                  fit: BoxFit.fill,
-                                ),
+                                child: IconButton(
+                                  onPressed: () {
+                                    Get.to(WelcomeScreen());
+                                  },
+                                  icon: SvgPicture.asset(
+                                    ImageConstant.imgArrowslefta2,
+                                    fit: BoxFit.fill,
+
+                                  ),),
+
                               ),
                             ),
                           ),
