@@ -118,7 +118,38 @@ class MainScreenWithBottomBarNoTopBarScreen
                                             color: ColorConstant.whiteA700,
                                           ),
                                           ),
-                                            onPressed: ()=> {},
+                                            onPressed: ()=> {
+                                              showDialog(
+                                                context: context,
+                                                builder: (context) {
+                                                  return Dialog(
+                                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+                                                    elevation: 16,
+                                                    child: Container(
+                                                      child: ListView(
+                                                        shrinkWrap: true,
+                                                        children: [
+                                                          Align(
+                                                            alignment: Alignment.bottomLeft,
+                                                            child: Image.network(
+                                                              "https://img.freepik.com/free-vector/risk-level-meter-indicator-stress-speedometer-chat-control-concept-presentation_356415-1136.jpg",
+                                                              // height: getVerticalSize(
+                                                              //   695,
+                                                              // ),
+                                                              // width: getHorizontalSize(
+                                                              //   360,
+                                                              // ),
+                                                              fit: BoxFit.fill,
+                                                            ),
+                                                          ),
+                                                                ]
+                                                        
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+                                            },
                                           )                              
                                         ),
                                       ),
