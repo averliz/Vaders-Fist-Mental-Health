@@ -1,3 +1,4 @@
+import 'package:obi_wan_s_application/data/regForm.dart';
 import 'package:obi_wan_s_application/presentation/main_screen_with_bottom_bar_no_top_bar_screen/main_screen_with_bottom_bar_no_top_bar_screen.dart';
 import 'package:obi_wan_s_application/presentation/register_q9_basic_color_screen/register_q9_basic_color_screen.dart';
 import 'package:obi_wan_s_application/presentation/welcome_screen/welcome_screen.dart';
@@ -602,6 +603,19 @@ class RegisterQ10BasicColorScreen
                                                     primary:ColorConstant.bluegray800
                                                 ),
                                                 onPressed: () {
+                                                  RegForm.from.troubleSleep(controller.selected.value);
+                                                  print("Name: " + RegForm.from.name.value);
+                                                  print("Email: " + RegForm.from.email.value);
+                                                  print("Password: " + RegForm.from.password.value);
+                                                  print("Marital Status: " + RegForm.from.marital.value);
+                                                  print("Income: " + RegForm.from.income.value);
+                                                  print("Citizen: " + RegForm.from.citizen.value);
+                                                  print("Recreational: " + RegForm.from.recreational.value);
+                                                  print("Hours of sleep: " + RegForm.from.sleepHours.value);
+                                                  print("Education Level: " + RegForm.from.education.value);
+                                                  print("Work: " + RegForm.from.work.value);
+                                                  print("Memory: " + RegForm.from.memory.value);
+                                                  print("Trouble sleeping: " + RegForm.from.troubleSleep.value);
                                                   Get.to(MainScreenWithBottomBarNoTopBarScreen());
                                                 },
                                                 child: Text(

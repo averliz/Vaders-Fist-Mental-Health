@@ -1,3 +1,4 @@
+import 'package:obi_wan_s_application/data/regForm.dart';
 import 'package:obi_wan_s_application/presentation/register_q4_basic_color_screen/register_q4_basic_color_screen.dart';
 import 'package:obi_wan_s_application/presentation/register_q7_basic_color_screen/register_q7_basic_color_screen.dart';
 import 'package:obi_wan_s_application/presentation/welcome_screen/welcome_screen.dart';
@@ -567,6 +568,7 @@ class RegisterQ5BasicColorScreen
                                                     primary:ColorConstant.bluegray800
                                                 ),
                                                 onPressed: () {
+                                                  RegForm.from.sleepHours(controller.selected.value);
                                                   Get.to(RegisterQ7BasicColorScreen());
                                                 },
                                                 child: Text(

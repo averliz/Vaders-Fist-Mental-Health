@@ -1,3 +1,4 @@
+import 'package:obi_wan_s_application/data/regForm.dart';
 import 'package:obi_wan_s_application/presentation/register_q1_basic_color_screen/register_q1_basic_color_screen.dart';
 
 import '../register_personal_details_basic_color_screen/widgets/register_personal_details_basic_color_item_widget.dart';
@@ -749,6 +750,10 @@ class RegisterPersonalDetailsBasicColorScreen
                                                 primary:ColorConstant.bluegray800
                                             ),
                                             onPressed: () {
+
+                                              RegForm.from.name(nameController.text);
+                                              RegForm.from.email(emailController.text);
+                                              RegForm.from.password(pwController.text);
                                               Get.to(RegisterQ1BasicColorScreen());
                                             },
                                             child: Text(

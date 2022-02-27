@@ -1,3 +1,4 @@
+import 'package:obi_wan_s_application/data/regForm.dart';
 import 'package:obi_wan_s_application/presentation/register_personal_details_basic_color_screen/register_personal_details_basic_color_screen.dart';
 import 'package:obi_wan_s_application/presentation/register_q2_basic_color_screen/register_q2_basic_color_screen.dart';
 import 'package:obi_wan_s_application/presentation/welcome_screen/welcome_screen.dart';
@@ -614,6 +615,7 @@ class RegisterQ1BasicColorScreen
                                                     primary:ColorConstant.bluegray800
                                                 ),
                                                 onPressed: () {
+                                                  RegForm.from.marital(controller.selected.value);
                                                   Get.to(RegisterQ2BasicColorScreen());
                                                 },
                                                 child: Text(

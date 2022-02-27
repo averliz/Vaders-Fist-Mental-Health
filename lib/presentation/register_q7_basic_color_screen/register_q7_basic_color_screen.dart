@@ -1,3 +1,4 @@
+import 'package:obi_wan_s_application/data/regForm.dart';
 import 'package:obi_wan_s_application/presentation/register_q5_basic_color_screen/register_q5_basic_color_screen.dart';
 import 'package:obi_wan_s_application/presentation/register_q8_basic_color_screen/register_q8_basic_color_screen.dart';
 import 'package:obi_wan_s_application/presentation/welcome_screen/welcome_screen.dart';
@@ -201,7 +202,7 @@ class RegisterQ7BasicColorScreen
                                               ),
                                               child: Text(
                                                 "What is your highest level of education?".tr,
-                                                overflow: TextOverflow.ellipsis,
+                                                overflow: TextOverflow.visible,
                                                 textAlign: TextAlign.left,
                                                 style: AppStyle
                                                     .textStyleMontserratmedium12
@@ -550,6 +551,7 @@ class RegisterQ7BasicColorScreen
                                                     primary:ColorConstant.bluegray800
                                                 ),
                                                 onPressed: () {
+                                                  RegForm.from.education(controller.selected.value);
                                                   Get.to(RegisterQ8BasicColorScreen());
                                                 },
                                                 child: Text(

@@ -1,3 +1,4 @@
+import 'package:obi_wan_s_application/data/regForm.dart';
 import 'package:obi_wan_s_application/presentation/register_q1_basic_color_screen/register_q1_basic_color_screen.dart';
 import 'package:obi_wan_s_application/presentation/register_q3_basic_color_screen/register_q3_basic_color_screen.dart';
 import 'package:obi_wan_s_application/presentation/welcome_screen/welcome_screen.dart';
@@ -371,6 +372,7 @@ class RegisterQ2BasicColorScreen
                                                     primary:ColorConstant.bluegray800
                                                 ),
                                                 onPressed: () {
+                                                  RegForm.from.income(controller.selected.value);
                                                   Get.to(RegisterQ3BasicColorScreen());
                                                 },
                                                 child: Text(
