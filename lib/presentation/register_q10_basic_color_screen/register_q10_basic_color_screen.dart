@@ -616,30 +616,39 @@ class RegisterQ10BasicColorScreen
                                                   print("Work: " + RegForm.from.work.value);
                                                   print("Memory: " + RegForm.from.memory.value);
                                                   print("Trouble sleeping: " + RegForm.from.troubleSleep.value);
-                                                  showDialog(
-                                                    context: context,
-                                                    builder: (context) {
-                                                      return Dialog(
-                                                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
-                                                        elevation: 16,
-                                                        child: Container(
-                                                          child: ListView(
-                                                            shrinkWrap: true,
-                                                            children: [
-                                                              Align(
-                                                                alignment: Alignment.bottomLeft,
-                                                                child: []
-                                                              ),
-                                                            ]
-                                                            
-                                                          ),
-                                                        ),
-                                                      );
+                                                  _AccountCreatedPopupDialog(context);
+                                                  // showDialog(
+                                                  //   context: context,
+                                                  //   builder: (context) {
+                                                  //     return Dialog(
+                                                  //       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                                                  //       elevation: 16,
+                                                  //       child: Container(
+                                                  //         height: 40,
+                                                  //         child: ListView(
+                                                  //           shrinkWrap: true,
+                                                  //           children: [
+                                                  //             Align(
+                                                  //               alignment: Alignment.bottomLeft,
+                                                  //               child: Text(
+                                                  //                 "Many people do not realise that they are at risk of depression. You are not alone!".tr,
+                                                  //                 overflow: TextOverflow.visible,
+                                                  //                 textAlign: TextAlign.left,
+                                                  //                 style: AppStyle
+                                                  //                     .textStyleMontserratmedium12
+                                                  //                     .copyWith(
+                                                  //                   fontSize: getFontSize(
+                                                  //                     16,
+                                                  //                   ),
+                                                  //                 ),
+                                                  //               )
+                                                  //             ),
+                                                  //           ]
+                                                  //
+                                                  //         ),
+                                                  //       ),
+                                                  //     );
                                                     },
-                                                  );
-
-                                                  // Get.to(MainScreenWithBottomBarNoTopBarScreen());
-                                                },
                                                 child: Text(
                                                     'Register'
                                                 ),
@@ -666,4 +675,41 @@ class RegisterQ10BasicColorScreen
       ),
     );
   }
+}
+_AccountCreatedPopupDialog(BuildContext context) {
+  //set up button
+  Widget okButton = TextButton(
+    child: Text("Continue"),
+    onPressed: () {
+      Get.to(MainScreenWithBottomBarNoTopBarScreen());
+    },
+  );
+
+  //set up alert dialog
+  AlertDialog alert = AlertDialog(
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+    title: Text("Welcome!"),
+    content: Text(
+                      "Many people do not realise that they are at risk of depression. You are not alone!".tr,
+                      overflow: TextOverflow.visible,
+                      textAlign: TextAlign.left,
+                      style: AppStyle
+                          .textStyleMontserratmedium12
+                          .copyWith(
+                        fontSize: getFontSize(
+                          16,
+                        ),
+                      ),
+    ),
+    actions: [
+      okButton,
+    ],
+  );
+
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
