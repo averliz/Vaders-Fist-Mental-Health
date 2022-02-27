@@ -218,7 +218,7 @@ class RegisterQ9BasicColorScreen
                                                   12.220001,
                                                 ),
                                                 bottom: getVerticalSize(
-                                                  224.78,
+                                                  20,
                                                 ),
                                               ),
                                               child: Column(
