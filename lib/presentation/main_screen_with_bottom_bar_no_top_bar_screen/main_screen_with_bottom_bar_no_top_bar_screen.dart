@@ -118,7 +118,8 @@ class MainScreenWithBottomBarNoTopBarScreen
                                             color: ColorConstant.whiteA700,
                                           ),
                                           ),
-                                            onPressed: ()=> {
+                                            onPressed: () {
+                                              
                                               showDialog(
                                                 context: context,
                                                 builder: (context) {
@@ -142,13 +143,13 @@ class MainScreenWithBottomBarNoTopBarScreen
                                                               fit: BoxFit.fill,
                                                             ),
                                                           ),
-                                                                ]
+                                                        ]
                                                         
                                                       ),
                                                     ),
                                                   );
                                                 },
-                                              ),
+                                              );
                                             },
                                           )                              
                                         ),

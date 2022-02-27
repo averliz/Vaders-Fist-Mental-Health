@@ -616,7 +616,29 @@ class RegisterQ10BasicColorScreen
                                                   print("Work: " + RegForm.from.work.value);
                                                   print("Memory: " + RegForm.from.memory.value);
                                                   print("Trouble sleeping: " + RegForm.from.troubleSleep.value);
-                                                  Get.to(MainScreenWithBottomBarNoTopBarScreen());
+                                                  showDialog(
+                                                    context: context,
+                                                    builder: (context) {
+                                                      return Dialog(
+                                                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+                                                        elevation: 16,
+                                                        child: Container(
+                                                          child: ListView(
+                                                            shrinkWrap: true,
+                                                            children: [
+                                                              Align(
+                                                                alignment: Alignment.bottomLeft,
+                                                                child: []
+                                                              ),
+                                                            ]
+                                                            
+                                                          ),
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+
+                                                  // Get.to(MainScreenWithBottomBarNoTopBarScreen());
                                                 },
                                                 child: Text(
                                                     'Register'
