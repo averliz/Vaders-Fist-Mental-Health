@@ -111,7 +111,7 @@ class LoginType2Screen extends GetWidget<LoginType2Controller> {
                                   10,
                                 ),
                                 top: getVerticalSize(
-                                  30,
+                                  20,
                                 ),
                                 right: getHorizontalSize(
                                   10,

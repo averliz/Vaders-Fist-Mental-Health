@@ -1,0 +1,17 @@
+{
+  "id": "manikahennedige/vader-s-fist-depression-prediction",
+  "id_no": 24967195,
+  "title": "Vader's Fist: Depression Prediction",
+  "code_file": "vader-s-fist-depression-prediction.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": true,
+  "keywords": [],
+  "dataset_sources": [
+    "manikahennedige/finalised-model"
+  ],
+  "kernel_sources": [],
+  "competition_sources": []
+}

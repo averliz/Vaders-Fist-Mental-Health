@@ -1,0 +1,17 @@
+{
+  "id": "manikahennedige/vader-s-fist-stress-prediction",
+  "id_no": 24966463,
+  "title": "Vader's Fist: Stress Prediction",
+  "code_file": "vader-s-fist-stress-prediction.irnb",
+  "language": "r",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": true,
+  "keywords": [],
+  "dataset_sources": [
+    "manikahennedige/vaders-fist-stress-prediction-model"
+  ],
+  "kernel_sources": [],
+  "competition_sources": []
+}
